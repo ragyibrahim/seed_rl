@@ -30,6 +30,7 @@ RUN curl https://www.roboti.us/download/mjpro150_linux.zip --output /tmp/mujoco.
 # Copy the mujoco license key
 COPY mjkey.txt /root/.mujoco/mjkey.txt
 
+RUN pip3 install --upgrade pip
 RUN pip3 install Cython cffi lockfile glfw imageio dataclasses gin-config
 RUN LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/.mujoco/mjpro150/bin pip3 install gym[mujoco]
 RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/.mujoco/mjpro150/bin' >> /root/.bashrc

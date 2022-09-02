@@ -52,6 +52,9 @@ RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8
     apt-key add - && \
     apt-get update && apt-get install -y bazel
 
+# Upgrade pip
+RUN pip3 install --upgrade pip
+
 # Build and install DeepMind Lab pip package.
 # We explicitly set the Numpy path as shown here:
 # https://github.com/deepmind/lab/blob/master/docs/users/build.md
